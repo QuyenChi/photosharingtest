@@ -2,14 +2,13 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
+
 const dbConnect = require("./db/dbConnect");
 const UserRouter = require("./routes/UserRouter");
 const PhotoRouter = require("./routes/PhotoRouter");
 const CommentRouter = require("./routes/CommentRouter.js");
 const AuthRouter = require("./routes/AuthRouter.js");
 const AdminRouter = require("./routes/AdminRouter.js");
-
-const Test = require("./routes/TestRouter.js");
 
 dbConnect();
 
@@ -24,7 +23,6 @@ app.use("/api/photo", PhotoRouter);
 app.use("/api/comment", CommentRouter);
 app.use("/api/auth", AuthRouter);
 app.use("/api/admin", AdminRouter);
-app.use("/test", Test);
 
 app.get("/", (request, response) => {
   response.send({ message: "Hello from photo-sharing app API!" });

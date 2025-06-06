@@ -9,14 +9,17 @@ function LoginPage() {
   const { adminLogin, login } = authStore();
   const [formData, setFormData] = useState({
     login_name: "",
-    // password: "",
+    password: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // login(formData);
-    // const user = await login(formData);
-    const user = await adminLogin(formData);
+    login(formData);
+    console.log("Form data submitted:", formData);
+    // const user = await adminLogin(formData);
+    const user = await login(formData);
+    console.log("User logged in:", user);
+    console.log("User ID:", user?._id || user?.user?._id);
     const userId = user?._id || user?.user?._id;
 
     if (userId) {

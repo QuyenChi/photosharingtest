@@ -8,14 +8,7 @@ const commentSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
         required: true
-    },
-    photo_id: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Photo",
-        required: true
     }
 });
 
-const Comment = mongoose.model("Comment", commentSchema);
-
-module.exports = Comment; 
+module.exports = commentSchema; 
